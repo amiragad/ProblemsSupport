@@ -15,12 +15,14 @@ import { TableComponent } from './Components/table/table.component';
 import { UsersComponent } from './Pages/users/users.component';
 import { CategoriesComponent } from './Pages/categories/categories.component';
 import { ProblemsComponent } from './Pages/problems/problems.component';
-import { ViewProblemComponent } from './Pages/view-problem/view-problem.component';
 import { AuthComponent } from './Pages/auth/auth.component';
 // libraries 
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ProblemCardComponent } from './Components/problem-card/problem-card.component';
+import { MaterialModule } from './material.module';
+
+
+
 
 
 @NgModule({
@@ -35,8 +37,7 @@ import { ProblemCardComponent } from './Components/problem-card/problem-card.com
     UsersComponent,
     CategoriesComponent,
     ProblemsComponent,
-    ViewProblemComponent,
-    ProblemCardComponent
+
   ],
   imports: [
     BrowserModule,
@@ -45,7 +46,8 @@ import { ProblemCardComponent } from './Components/problem-card/problem-card.com
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

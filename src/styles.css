@@ -4,6 +4,8 @@ body {
     margin: 0;
 }
 
+
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus,
@@ -49,4 +51,25 @@ select:-webkit-autofill:focus {
 }
 .mat-tab-label-active{
     border-bottom:  1px solid #03e9f4 !important;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-form-field.mat-focused .mat-form-field-label{
+    color: #be5670;
+}
+.mat-form-field-ripple {
+    background-color: #be5670;
+}
+.mat-form-field.mat-focused .mat-form-field-ripple{
+    background-color: #be5670;
+}
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow{
+    color: #be5670;
+}
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled){
+    color: #be5670;
+}
+.mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple){
+    color: #be5670;
 }
