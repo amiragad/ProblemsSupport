@@ -40,7 +40,7 @@ mat-input-element{color: currentColor !important;}
 }
 
 .problemCard .solved{
-    background-color: #408140;
+    background-color: #589058;
     padding: 5px 25px;
     border-radius: 3px;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
@@ -61,7 +61,7 @@ mat-input-element{color: currentColor !important;}
 @keyframes pulse-green {
     0% {
       transform: scale(1);
-      box-shadow: 0 0 0 0 #408140;
+      box-shadow: 0 0 0 0 #589058;
     }
     
     70% {
@@ -99,4 +99,10 @@ mat-input-element{color: currentColor !important;}
 .page-item.active .page-link{
     background-color: #be5670;
     border-color: #be5670;
+}
+
+.customButton{
+    background-color: #be5670;
+    max-height: 50px;
+    color: #fff;
 }

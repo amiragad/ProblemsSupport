@@ -20,7 +20,9 @@ import { AuthComponent } from './Pages/auth/auth.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
-
+import { ProblemService } from './Services/problem.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AddProblemComponent } from './Pages/problems/add-problem/add-problem.component';
 
 
 
@@ -38,6 +40,7 @@ import { MaterialModule } from './material.module';
     CategoriesComponent,
     ProblemsComponent,
 
+
   ],
   imports: [
     BrowserModule,
@@ -47,9 +50,14 @@ import { MaterialModule } from './material.module';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    FontAwesomeModule 
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ProblemService],
+  bootstrap: [AppComponent],
+  entryComponents:
+  [
+    AddProblemComponent
+  ]
 })
 export class AppModule { }
