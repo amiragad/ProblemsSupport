@@ -1,3 +1,96 @@
 .problemDetailsContainer{
     padding: 25px;
 }
+.m-r-10{margin-right: 10px;}
+.header header{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.line{
+    border: 1px solid #00000021 ;
+}
+.description{padding: 20px;}
+
+.solutionCard{
+    padding: 30px;
+    max-width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-shadow: 0px 6px 10px 3px rgba(143,143,143,1);
+    -moz-box-shadow: 0px 6px 10px 3px rgba(143,143,143,1);
+    box-shadow: 0px 6px 10px 3px rgba(143,143,143,1);
+    background-color: #be567021;
+}
+
+.userImage{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+.userImage img{max-width: 100%; display: block;}
+ .userDetails p{
+    margin: 10px;
+    font-size: 14px;
+}
+.userDetails p .useName{
+    font-size: 20px;
+    font-weight: 500px;
+}
+
+
+.solutionCard .actionsArea{padding: 10px;}
+.pressedColor{color: #be5670;}
+.btn:focus{box-shadow: none;}
+
+.improveAnswerArea{
+    margin-bottom: 20px;
+}
+.improveAnswerArea .userImage{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.improveAnswerArea .userImage img{max-width: 100%; display: block;}
+.improveAnswerArea .userDetails p{
+    margin: 0px 0px 0px 15px;
+    font-size: 12px;
+}
+.improveAnswerArea .userDetails p .useName{
+    font-size: 15px;
+    font-weight: 500px;
+}
+.improveAnswerArea .CommentSection{
+    background-color: #f3f3f3;
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-shadow: 0px 6px 10px 3px rgb(143 143 143);
+    -moz-box-shadow: 0px 6px 10px 3px rgba(143,143,143,1);
+    box-shadow: 0px 6px 10px 3px rgb(143 143 143);
+    margin-top: -15px;
+    position:relative;
+    border-top-left-radius: 5px;
+}
+.improveAnswerArea .CommentSection::before{
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 12px solid #f3f3f3;
+    position: absolute;
+    left: -12px;
+    top: 4px;
+}
+.improveAnswerArea .CommentSection .line{
+    max-width: 95%;
+    margin: auto;
+}
+.addCommentSection{
+    background: #f3f3f3;
+    height: 100px;
+    margin-top: 40px;
+}
+

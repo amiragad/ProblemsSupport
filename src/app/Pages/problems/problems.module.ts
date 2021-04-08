@@ -8,6 +8,10 @@ import { ProblemCardComponent } from 'src/app/Components/problem-card/problem-ca
 import { AddProblemComponent } from './add-problem/add-problem.component';
 import { MaterialModule } from 'src/app/material.module';
 import { ProblemsRoutingModule } from './problems-routing.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { HttpClientModule } from '@angular/common/http';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 
 
@@ -23,7 +27,13 @@ import { ProblemsRoutingModule } from './problems-routing.module';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    ProblemsRoutingModule
-  ]
+    ProblemsRoutingModule,
+    FontAwesomeModule,
+    AngularEditorModule,
+    HttpClientModule,
+  ],
+  providers: [
+    {provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {}}
+]
 })
 export class ProblemsModule { }

@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
 import { ProblemService } from 'src/app/Services/problem.service';
+import { AddProblemComponent } from './add-problem/add-problem.component';
 interface Category {
   value: string;
   viewValue: string;
@@ -11,6 +13,7 @@ interface Category {
 export interface Problem {
   name: string;
 }
+
 @Component({
   selector: 'app-problems',
   templateUrl: './problems.component.html',
@@ -22,7 +25,7 @@ export class ProblemsComponent implements OnInit {
   filteredOptions: Observable<Problem[]> | undefined;
   problemObj:object={};
   
-  constructor(public _router:Router, public _problemService:ProblemService) { }
+  constructor(public _router:Router, public _problemService:ProblemService, public dialog: MatDialog) { }
   
   options: Problem[] = [
     {name: 'Fix Backgorund Color'},
@@ -37,66 +40,70 @@ export class ProblemsComponent implements OnInit {
 
   problems: any[] =[
     {
-      title: 'Fix Backgorund Color1',
-      desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-      solved:true
-    },
-    {
-      title: 'Fix Backgorund Color2',
-      desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-      solved:false
-    },
-    {
-      title: 'Fix Backgorund Color3',
-      desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-      solved:false
-    },
-    {
       title: 'Fix Backgorund Color4',
-      desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-      solved:true
+      desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry',
+      solved:true,
+      date: '2021-04-01 10:12:12'
     },
     {
       title: 'Fix Backgorund Color5',
       desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-      solved:false
+      solved:false,
+      date: '2017-04-13 10:12:12'
     },
     {
       title: 'Fix Backgorund Color6',
       desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-      solved:true
+      solved:true,
+      date: '2017-04-13 10:12:12'
     },
     {
       title: 'Fix Backgorund Color2',
       desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-      solved:false
+      solved:false,
+      date: '2017-04-13 10:12:12'
     },
     {
       title: 'Fix Backgorund Color3',
       desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-      solved:false
+      solved:false,
+      date: '2017-04-13 10:12:12'
     },
     {
       title: 'Fix Backgorund Color4',
       desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-      solved:true
+      solved:true,
+      date: '2017-04-13 10:12:12'
     },
     {
       title: 'Fix Backgorund Color2',
       desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-      solved:false
+      solved:false,
+      date: '2017-04-13 10:12:12'
     },
     {
       title: 'Fix Backgorund Color3',
       desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-      solved:false
+      solved:false,
+      date: '2017-04-13 10:12:12'
     },
     {
       title: 'Fix Backgorund Color4',
       desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-      solved:true
+      solved:true,
+      date: '2017-04-13 10:12:12'
     }
   ];
+
+  addProblemDialog() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.maxWidth = '60%';
+    const dialogRef = this.dialog.open(AddProblemComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 
   displayFn(problem: Problem): string {
     return problem && problem.name ? problem.name : '';
