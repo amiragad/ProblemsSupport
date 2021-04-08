@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+
 // components
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,7 +54,8 @@ import { AddProblemComponent } from './Pages/problems/add-problem/add-problem.co
     ReactiveFormsModule,
     CommonModule,
     MaterialModule,
-    FontAwesomeModule 
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [ProblemService],
   bootstrap: [AppComponent],

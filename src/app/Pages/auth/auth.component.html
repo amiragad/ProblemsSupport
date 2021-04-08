@@ -10,22 +10,29 @@
                 <div class="row justify-content-center ">
                     <div class="col-sm-8 ">
                         <div class="login-box">
-                            <mat-tab-group [disableRipple]="true" dynamicHeight mat-align-tabs="center">
+                            <div class="message-cont" *ngIf='!!message'>
+                                <h4  class="alert-message p-2 rounded">{{ message}}</h4>
+                            </div>
+                            <mat-tab-group [disableRipple]="true" dynamicHeight mat-align-tabs="center"
+                            [selectedIndex]="selected.value"
+                            >
                                 <mat-tab label="Login">
-                                    <form [formGroup]="loginForm" (ngSubmit)="login();" class="main-form ">
-                                        <div class="user-box mt-4">
+                                    <form [formGroup]="loginForm" (ngSubmit)="login();" class="main-form "  (keydown.enter)="onEnterKeyDown($event,'login')">
+                                        <div class="user-box my-3">
                                             <input id="user-name" type="text" formControlName="userName">
-                                            <label for="user-email">User name<span class="req">*</span></label>
-                                            <div *ngIf="LoginSubmitted && fval.userName.errors" class="invalid-feedback">
-                                                <div *ngIf="fval.userName.errors.required"> User name isRequired
+                                            <label for="user-name">User name<span class="req">*</span></label>
+                                            <div *ngIf="LoginSubmitted && fval.userName.errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="fval.userName.errors?.required"> User name isRequired
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="user-box">
                                             <input id="msg-text" type="password" formControlName="password">
                                             <label for="msg-text">Password<span class="req">*</span></label>
-                                            <div *ngIf="LoginSubmitted && fval.password.errors" class="invalid-feedback">
-                                                <div *ngIf="fval.password.errors.required">
+                                            <div *ngIf="LoginSubmitted && fval.password.errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="fval.password.errors?.required">
                                                     passwordisRequired
                                                 </div>
 
@@ -45,48 +52,51 @@
 
                                 </mat-tab>
                                 <mat-tab label="Sign up">
-                                    <form [formGroup]="SignupForm" (ngSubmit)="Signup();" class="main-form ">
-                                        <div class="user-box mt-4">
-                                            <input id="fullName" type="text" formControlName="fullName">
-                                            <label for="user-fullName">Full name<span class="req">*</span></label>
-                                            <div *ngIf="SignupSubmitted && SignupFval.fullName.errors" class="invalid-feedback">
-                                                <div *ngIf="SignupFval.fullName.errors.required">Full name isRequired
+                                    <form [formGroup]="SignupForm" (ngSubmit)="SignUp();" class="main-form "  (keydown.enter)="onEnterKeyDown($event,'SignUp')">
+                                        <div class="user-box my-3">
+                                            <input id="user-name" type="text" formControlName="name">
+                                            <label for="user-name">Full name<span class="req">*</span></label>
+                                            <div *ngIf="SignupSubmitted && SignupFval.name.errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="SignupFval.name.errors?.required">Full name isRequired
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="user-box mt-4">
+                                        <div class="user-box my-3">
                                             <input id="user-email" type="email" formControlName="email">
                                             <label for="user-email">Email<span class="req">*</span></label>
-                                            <div *ngIf="SignupSubmitted && SignupFval.email.errors" class="invalid-feedback">
-                                                <div *ngIf="SignupFval.email.errors.required"> Email isRequired
+                                            <div *ngIf="SignupSubmitted && SignupFval.email.errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="SignupFval.email.errors?.required"> Email isRequired
                                                 </div>
+                                                <div *ngIf="SignupFval.email.errors?.email">
+                                                    Enter valid email</div>
                                             </div>
                                         </div>
 
-                                        <div class="user-box mt-4">
+                                        <div class="user-box my-3">
                                             <input id="user-userName" type="text" formControlName="userName">
                                             <label for="user-userName">User name<span class="req">*</span></label>
-                                            <div *ngIf="SignupSubmitted && SignupFval.userName.errors" class="invalid-feedback">
-                                                <div *ngIf="SignupFval.userName.errors.required"> User name isRequired
+                                            <div *ngIf="SignupSubmitted && SignupFval.userName.errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="SignupFval.userName.errors?.required"> User name isRequired
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="user-box">
                                             <input id="msg-text" type="password" formControlName="password">
                                             <label for="msg-text">Password<span class="req">*</span></label>
-                                            <div *ngIf="SignupSubmitted && SignupFval.password.errors" class="invalid-feedback">
-                                                <div *ngIf="SignupFval.password.errors.required">
+                                            <div *ngIf="SignupSubmitted && SignupFval.password.errors"
+                                                class="invalid-feedback">
+                                                <div *ngIf="SignupFval.password.errors?.required">
                                                     password isRequired
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="user-box mt-4">
-                                            <input id="user-image" type="text" formControlName="image">
+                                        <div class="user-box my-3">
+                                            <input id="user-image" type="file" formControlName="image">
                                             <label for="user-image">Image <span class="req">*</span></label>
-                                            <div *ngIf="SignupSubmitted && SignupFval.image.errors" class="invalid-feedback">
-                                                <div *ngIf="SignupFval.image.errors.required"> Image isRequired
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                         <button class="btn" type="submit">
                                             <a>
