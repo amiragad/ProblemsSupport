@@ -1,7 +1,12 @@
 <mat-dialog-content class="mat-typography">
  <div class="titleArea">
     <label for="problemTitle" class="form-label">Title</label>
-    <input type="text" class="form-control" id="problemTitle" placeholder="Add problem title">
+    <input type="text" class="form-control"  [(ngModel)]="problemDetails" #problemTitle="ngModel" placeholder="Add problem title" required>
+    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+      <div *ngIf="name.errors.required">
+        Title is required.
+      </div>
+    </div>
  </div>
  <div class="descArea">
   <label for="problemDescription" class="form-label">Description</label>

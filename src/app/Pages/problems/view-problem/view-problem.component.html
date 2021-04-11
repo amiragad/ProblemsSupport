@@ -6,35 +6,35 @@
     </div>
     <div class="line"></div>
     <div class="description">
-        <P>{{problemObject.desc}}</P>
+        <P>{{problemObject.description}}</P>
     </div>
-    <div class="solutionCard d-flex flex-column">
+    <div class="solutionCard d-flex flex-column" *ngFor="let solution of problemObject.solutions; let i = index;">
         <div class="userDetails d-flex">
             <div class="userImage"><img src="../../../../assets/images/user-profile.png" alt="user name"></div>
-            <p><span class="useName">Ahmed Yasser Samy</span><br> Answered : <span>{{problemExactDateObj.days}}</span> days, <span>{{problemExactDateObj.minutes}}</span> hours, <span>{{problemExactDateObj.minutes}}</span> minutes ago</p>
+            <p><span class="useName">{{username}}</span><br> Answered : <span>{{problemExactDateObj.days}}</span> days, <span>{{problemExactDateObj.minutes}}</span> hours, <span>{{problemExactDateObj.minutes}}</span> minutes ago</p>
         </div>
         <div class="description">
-            <P>{{problemObject.desc}}</P>
+            <P>{{solution.content}}</P>
         </div>
         <div class="line"></div>
         <div class="actionsArea d-flex justify-content-between">
             <div class="actionButtons">
-                <button class="btn" (click)="pressedLike =! pressedLike; checkPressed('Like')"><span class="m-r-10">Like</span> <fa-icon [icon]="iconsObj.fasThumbsUp" *ngIf="!pressedLike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedLike}" [icon]="iconsObj.farThumbsUp" *ngIf="pressedLike"></fa-icon></button>
+                <button class="btn" (click)="pressedLike =! pressedLike; checkPressed('Like','Solution',solution)"><span class="m-r-10">Like</span> <fa-icon [icon]="iconsObj.fasThumbsUp" *ngIf="!pressedLike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedLike}" [icon]="iconsObj.farThumbsUp" *ngIf="pressedLike"></fa-icon></button>
                 <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="m-r-10">Comment</span> <fa-icon [icon]="iconsObj.farCommentDots"></fa-icon></button>
-                <button class="btn" (click)="pressedDislike =! pressedDislike; checkPressed('Dislike')"><span class="m-r-10">Dislikes</span> <fa-icon [icon]="iconsObj.farThumbsDown" *ngIf="!pressedDislike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedDislike}" [icon]="iconsObj.fasThumbsDown" *ngIf="pressedDislike"></fa-icon></button>
+                <button class="btn" (click)="pressedDislike =! pressedDislike; checkPressed('Dislike','Solution',solution)"><span class="m-r-10">Dislikes</span> <fa-icon [icon]="iconsObj.farThumbsDown" *ngIf="!pressedDislike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedDislike}" [icon]="iconsObj.fasThumbsDown" *ngIf="pressedDislike"></fa-icon></button>
             </div>
             <div class="status">
-                <p><span class="m-r-10"><span>2000</span> Likes</span> <span>2</span> Dislikes</p>
+                <p><span class="m-r-10"><span>{{solution.likesCount}}</span> Likes</span> <span>{{solution.disLikeCount}}</span> Dislikes</p>
             </div>
         </div>
-        <div class="improveAnswerArea ">
+        <div class="improveAnswerArea" *ngFor="let comment of solution.comments; let i = index;">
             <div class="userDetails d-flex">
                 <div class="userImage"><img src="../../../../assets/images/user-profile.png" alt="user name"></div>
-                <p><span class="useName">Ahmed Yasser Samy</span> | <span>{{problemExactDateObj.days}}</span> days, <span>{{problemExactDateObj.minutes}}</span> hours, <span>{{problemExactDateObj.minutes}}</span> minutes ago</p>
+                <p><span class="useName">{{username}}</span> | <span>{{problemExactDateObj.days}}</span> days, <span>{{problemExactDateObj.minutes}}</span> hours, <span>{{problemExactDateObj.minutes}}</span> minutes ago</p>
             </div>
             <div class="CommentSection">
                 <div class="description">
-                    <P>{{problemObject.desc}}</P>
+                    <P>{{comment.content}}</P>
                 </div>
                 <div class="line"></div>
                 <div class="actionsArea d-flex justify-content-between">
@@ -43,99 +43,16 @@
                         <button class="btn" (click)="pressedDislike =! pressedDislike; checkPressed('Dislike')"><span class="m-r-10">Dislikes</span> <fa-icon [icon]="iconsObj.farThumbsDown" *ngIf="!pressedDislike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedDislike}" [icon]="iconsObj.fasThumbsDown" *ngIf="pressedDislike"></fa-icon></button>
                     </div>
                     <div class="status">
-                        <p><span class="m-r-10"><span>2000</span> Likes</span> <span>2</span> Dislikes</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="improveAnswerArea ">
-            <div class="userDetails d-flex">
-                <div class="userImage"><img src="../../../../assets/images/user-profile.png" alt="user name"></div>
-                <p><span class="useName">Ahmed Yasser Samy</span> | <span>{{problemExactDateObj.days}}</span> days, <span>{{problemExactDateObj.minutes}}</span> hours, <span>{{problemExactDateObj.minutes}}</span> minutes ago</p>
-            </div>
-            <div class="CommentSection">
-                <div class="description">
-                    <P>{{problemObject.desc}}</P>
-                </div>
-                <div class="line"></div>
-                <div class="actionsArea d-flex justify-content-between">
-                    <div class="actionButtons">
-                        <button class="btn" (click)="pressedLike =! pressedLike; checkPressed('Like')"><span class="m-r-10">Like</span> <fa-icon [icon]="iconsObj.fasThumbsUp" *ngIf="!pressedLike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedLike}" [icon]="iconsObj.farThumbsUp" *ngIf="pressedLike"></fa-icon></button>
-                        <button class="btn" (click)="pressedDislike =! pressedDislike; checkPressed('Dislike')"><span class="m-r-10">Dislikes</span> <fa-icon [icon]="iconsObj.farThumbsDown" *ngIf="!pressedDislike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedDislike}" [icon]="iconsObj.fasThumbsDown" *ngIf="pressedDislike"></fa-icon></button>
-                    </div>
-                    <div class="status">
-                        <p><span class="m-r-10"><span>2000</span> Likes</span> <span>2</span> Dislikes</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="improveAnswerArea ">
-            <div class="userDetails d-flex">
-                <div class="userImage"><img src="../../../../assets/images/user-profile.png" alt="user name"></div>
-                <p><span class="useName">Ahmed Yasser Samy</span> | <span>{{problemExactDateObj.days}}</span> days, <span>{{problemExactDateObj.minutes}}</span> hours, <span>{{problemExactDateObj.minutes}}</span> minutes ago</p>
-            </div>
-            <div class="CommentSection">
-                <div class="description">
-                    <P>{{problemObject.desc}}</P>
-                </div>
-                <div class="line"></div>
-                <div class="actionsArea d-flex justify-content-between">
-                    <div class="actionButtons">
-                        <button class="btn" (click)="pressedLike =! pressedLike; checkPressed('Like')"><span class="m-r-10">Like</span> <fa-icon [icon]="iconsObj.fasThumbsUp" *ngIf="!pressedLike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedLike}" [icon]="iconsObj.farThumbsUp" *ngIf="pressedLike"></fa-icon></button>
-                        <button class="btn" (click)="pressedDislike =! pressedDislike; checkPressed('Dislike')"><span class="m-r-10">Dislikes</span> <fa-icon [icon]="iconsObj.farThumbsDown" *ngIf="!pressedDislike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedDislike}" [icon]="iconsObj.fasThumbsDown" *ngIf="pressedDislike"></fa-icon></button>
-                    </div>
-                    <div class="status">
-                        <p><span class="m-r-10"><span>2000</span> Likes</span> <span>2</span> Dislikes</p>
+                        <p><span class="m-r-10"><span>{{comment.likesCount}}</span> Likes</span> <span>{{comment.disLikeCount}}</span> Dislikes</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="addCommentSection collapse" id="collapseExample">
             <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent"></angular-editor>
-        </div>
-    </div>
-    <div class="solutionCard d-flex flex-column">
-        <div class="userDetails d-flex">
-            <div class="userImage"><img src="../../../../assets/images/user-profile.png" alt="user name"></div>
-            <p><span class="useName">Ahmed Yasser Samy</span><br> Answered : <span>{{problemExactDateObj.days}}</span> days, <span>{{problemExactDateObj.minutes}}</span> hours, <span>{{problemExactDateObj.minutes}}</span> minutes ago</p>
-        </div>
-        <div class="description">
-            <P>{{problemObject.desc}}</P>
-        </div>
-        <div class="line"></div>
-        <div class="actionsArea d-flex justify-content-between">
-            <div class="actionButtons">
-                <button class="btn" (click)="pressedLike =! pressedLike; checkPressed('Like')"><span class="m-r-10">Like</span> <fa-icon [icon]="iconsObj.fasThumbsUp" *ngIf="!pressedLike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedLike}" [icon]="iconsObj.farThumbsUp" *ngIf="pressedLike"></fa-icon></button>
-                <button class="btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"><span class="m-r-10">Comment</span> <fa-icon [icon]="iconsObj.farCommentDots"></fa-icon></button>
-                <button class="btn" (click)="pressedDislike =! pressedDislike; checkPressed('Dislike')"><span class="m-r-10">Dislikes</span> <fa-icon [icon]="iconsObj.farThumbsDown" *ngIf="!pressedDislike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedDislike}" [icon]="iconsObj.fasThumbsDown" *ngIf="pressedDislike"></fa-icon></button>
+            <div class="d-flex">
+                <button type="button" class="btn customButton ml-auto" (click)="addProblemDialog()">Post comment</button>
             </div>
-            <div class="status">
-                <p><span class="m-r-10"><span>2000</span> Likes</span> <span>2</span> Dislikes</p>
-            </div>
-        </div>
-        <div class="improveAnswerArea ">
-            <div class="userDetails d-flex">
-                <div class="userImage"><img src="../../../../assets/images/user-profile.png" alt="user name"></div>
-                <p><span class="useName">Ahmed Yasser Samy</span> | <span>{{problemExactDateObj.days}}</span> days, <span>{{problemExactDateObj.minutes}}</span> hours, <span>{{problemExactDateObj.minutes}}</span> minutes ago</p>
-            </div>
-            <div class="CommentSection">
-                <div class="description">
-                    <P>{{problemObject.desc}}</P>
-                </div>
-                <div class="line"></div>
-                <div class="actionsArea d-flex justify-content-between">
-                    <div class="actionButtons">
-                        <button class="btn" (click)="pressedLike =! pressedLike; checkPressed('Like')"><span class="m-r-10">Like</span> <fa-icon [icon]="iconsObj.fasThumbsUp" *ngIf="!pressedLike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedLike}" [icon]="iconsObj.farThumbsUp" *ngIf="pressedLike"></fa-icon></button>
-                        <button class="btn" (click)="pressedDislike =! pressedDislike; checkPressed('Dislike')"><span class="m-r-10">Dislikes</span> <fa-icon [icon]="iconsObj.farThumbsDown" *ngIf="!pressedDislike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedDislike}" [icon]="iconsObj.fasThumbsDown" *ngIf="pressedDislike"></fa-icon></button>
-                    </div>
-                    <div class="status">
-                        <p><span class="m-r-10"><span>2000</span> Likes</span> <span>2</span> Dislikes</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="addCommentSection collapse" id="collapseExample">
-            <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent"></angular-editor>
         </div>
     </div>
     
