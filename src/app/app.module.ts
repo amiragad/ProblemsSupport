@@ -26,7 +26,7 @@ import { MaterialModule } from './material.module';
 import { ProblemService } from './Services/problem.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddProblemComponent } from './Pages/problems/add-problem/add-problem.component';
-
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 
 
@@ -55,7 +55,8 @@ import { AddProblemComponent } from './Pages/problems/add-problem/add-problem.co
     CommonModule,
     MaterialModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    SweetAlert2Module
   ],
   providers: [ProblemService],
   bootstrap: [AppComponent],
