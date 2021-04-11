@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as Cookies from 'js-cookie';
+import Swal from 'sweetalert2';
 import { AuthService } from '../../Services/auth.service';
 @Component({
   selector: 'app-auth',
@@ -44,17 +45,33 @@ export class AuthComponent implements OnInit {
   login() {
     this.LoginSubmitted = true
     this.AuthService.Login(this.loginForm.value).subscribe(res => {
+      debugger
       if (res.success && res.data?.token) {
         Cookies.set('ProgramerToken', res.data.token);
         Cookies.set('ProgramerUser', this.loginForm.value.userName);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Logged in successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.router.navigate(['problems']);
         this.LoginSubmitted = false
       }
       else {
         this.message = res.message;
-        setTimeout(() => {
-          this.message = null;
-        }, 2000);
+        Swal.fire({
+          position: 'center',
+          icon: 'error',
+          title: this.message,
+          showConfirmButton: false,
+          timer: 2000
+        })
+        this.message = null;
+        // setTimeout(() => {
+        //   this.message = null;
+        // }, 2000);
 
         this.LoginSubmitted = false
       }
@@ -79,17 +96,32 @@ export class AuthComponent implements OnInit {
         console.log("res->", res)
         this.SignupSubmitted = false;
         this.message = res.message;
-        setTimeout(() => {
-          this.message = null;
-        }, 2000);
-
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Signed up successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.message = null;
+        // setTimeout(() => {
+        //   this.message = null;
+        // }, 2000);
         this.SignupForm.reset();
       }
       else {
         this.message = res.message;
-        setTimeout(() => {
-          this.message = null;
-        }, 2000);
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Signed up successfully',
+          showConfirmButton: false,
+          timer: 2000
+        })
+        this.message = null;
+        // setTimeout(() => {
+        //   this.message = null;
+        // }, 2000);
 
         this.SignupSubmitted = false
       }

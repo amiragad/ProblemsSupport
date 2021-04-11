@@ -74,4 +74,4 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     max-height: 50px;
     color: #fff;
 }
-.angular-editor-textarea{min-height: 200px !important;}
+.angular-editor-textarea{min-height: 200px !important; background-color: #fff !important;}
