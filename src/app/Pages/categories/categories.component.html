@@ -1,1 +1,24 @@
-<p>categories works!</p>
+<app-nav-bar></app-nav-bar>
+
+<div class="container-fluid listContainer">
+    <div class="row ml-r-0">
+        <div class="col-12 d-flex">
+            <form class="OptionsForm d-flex flex-wrap">
+                <mat-form-field class="pt-25">
+                    <mat-label>Search</mat-label>
+                    <input matInput placeholder="Search for category">
+                </mat-form-field>
+            </form>
+            <button type="button" class="btn customButton ml-auto" (click)="addCategoryDialog()">Add Category</button>
+        </div>
+    </div>
+    <div class="row problemsListArea ml-r-0 d-flex align-items-stretch justify-content-md-around">
+        <div class="col-12 col-md-4 col-lg-3 problemCard d-flex flex-column"
+            *ngFor="let category of categoryList; index as i;">
+            <div
+                class="HeaderArea d-flex justify-content-xl-between justify-content-center flex-md-column flex-lg-row flex-wrap">
+                <header>{{category.name}}</header>
+            </div>
+        </div>
+    </div>
+</div>

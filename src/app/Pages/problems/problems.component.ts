@@ -36,63 +36,6 @@ export class ProblemsComponent implements OnInit {
     {value: 'category-2', viewValue: 'category3'}
   ];
 
-  // problems: any[] =[
-  //   {
-  //     title: 'Fix Backgorund Color4',
-  //     desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry',
-  //     solved:true,
-  //     date: '2021-04-01 10:12:12'
-  //   },
-  //   {
-  //     title: 'Fix Backgorund Color5',
-  //     desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-  //     solved:false,
-  //     date: '2017-04-13 10:12:12'
-  //   },
-  //   {
-  //     title: 'Fix Backgorund Color6',
-  //     desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-  //     solved:true,
-  //     date: '2017-04-13 10:12:12'
-  //   },
-  //   {
-  //     title: 'Fix Backgorund Color2',
-  //     desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-  //     solved:false,
-  //     date: '2017-04-13 10:12:12'
-  //   },
-  //   {
-  //     title: 'Fix Backgorund Color3',
-  //     desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-  //     solved:false,
-  //     date: '2017-04-13 10:12:12'
-  //   },
-  //   {
-  //     title: 'Fix Backgorund Color4',
-  //     desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-  //     solved:true,
-  //     date: '2017-04-13 10:12:12'
-  //   },
-  //   {
-  //     title: 'Fix Backgorund Color2',
-  //     desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-  //     solved:false,
-  //     date: '2017-04-13 10:12:12'
-  //   },
-  //   {
-  //     title: 'Fix Backgorund Color3',
-  //     desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-  //     solved:false,
-  //     date: '2017-04-13 10:12:12'
-  //   },
-  //   {
-  //     title: 'Fix Backgorund Color4',
-  //     desc:'Lorem Ipsum is simply dummy text of the printing and typesetting industryLorem Ipsum has been the industry.....',
-  //     solved:true,
-  //     date: '2017-04-13 10:12:12'
-  //   }
-  // ];
-
   addProblemDialog() {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.maxWidth = '60%';
