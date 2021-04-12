@@ -1,0 +1,13 @@
+<form [formGroup]="categoryForm" (ngSubmit)="onsubmit()">
+  <mat-dialog-content class="mat-typography">
+    <div class="titleArea">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name"
+        placeholder="Add category">
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button type="submit" mat-dialog-close class="customButton">Post category</button>
+  </mat-dialog-actions>
+</form>
