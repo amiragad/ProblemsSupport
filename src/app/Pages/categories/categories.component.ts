@@ -17,7 +17,7 @@ export class CategoriesComponent implements OnInit {
   selectedValue: string | undefined;
   myControl = new FormControl();
   problemObj: object = {};
-  categoryList: category[] | undefined;
+  categoryList: any | undefined;
 
   constructor(
     public _router: Router,
@@ -38,7 +38,7 @@ export class CategoriesComponent implements OnInit {
 
 
   getAllCategories() {
-    this.CategoriesService.getAllcategories().subscribe(res => {
+    this.CategoriesService.getAllCategories().subscribe(res => {
       this.categoryList = res.data;
       console.log("--->", this.categoryList)
     }, err => {
