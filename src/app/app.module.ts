@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './Components/nav-bar/nav-bar.component';
 import { CommentComponent } from './Components/comment/comment.component';
-import { ModalComponent } from './Components/modal/modal.component';
+import { AddCategoryComponent } from './Components/add-category/add-category.component';
 import { FormComponent } from './Components/form/form.component';
 import { TableComponent } from './Components/table/table.component';
 // pages
@@ -36,7 +36,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     AuthComponent,
     NavBarComponent,
     CommentComponent,
-    ModalComponent,
+    AddCategoryComponent,
     FormComponent,
     TableComponent,
     UsersComponent,
@@ -62,7 +62,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
   bootstrap: [AppComponent],
   entryComponents:
   [
-    AddProblemComponent
+    AddProblemComponent,
+    AddCategoryComponent
   ]
 })
 export class AppModule { }

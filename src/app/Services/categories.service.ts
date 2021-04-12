@@ -8,19 +8,29 @@ import { Categories } from '../Interfaces/categories';
   providedIn: 'root'
 })
 export class CategoriesService {
-  environmentUrl:string;
+  environmentUrl: string;
 
-  getAllCategories(){
+  getAllCategories() {
     let token = Cookies.get('ProgramerToken');
     let options = {
       headers: new HttpHeaders({
-              Authorization: `Bearer ${token}`
-            })
+        Authorization: `Bearer ${token}`
+      })
     };
     return this.http.get<Categories>(this.environmentUrl + 'Categories/GetAllCategory', options)
   }
 
-  constructor(private http: HttpClient) { 
+  addNewCategory(category: any) {
+    let token = Cookies.get('ProgramerToken');
+    let options = {
+      headers: new HttpHeaders({
+        Authorization: `Bearer ${token}`
+      })
+    };
+    return this.http.post<any>(this.environmentUrl + 'Categories/AddCategories', category, options)
+  }
+
+  constructor(private http: HttpClient) {
     this.environmentUrl = environment.apiUrl;
   }
 }
