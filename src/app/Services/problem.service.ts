@@ -39,4 +39,15 @@ export class ProblemService {
     return this.http.post(this.environmentUrl + 'Solutions/SolutionsLikes' , JSON.stringify(likesObj),{ headers: { 'Content-Type': 'application/json' } });
     // return this.http.post<any>(this.environmentUrl + 'Request/TotalsDashBoardDtailsForTrial', search, options);
   }
+
+  addNewProblem(problemObj:object):Observable<any>{
+    let token = Cookies.get('ProgramerToken');
+    let options = {
+      headers: new HttpHeaders({
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json'
+            })
+    };
+    return this.http.post(this.environmentUrl + 'Problems/AddProblem' , JSON.stringify(problemObj), options);
+  }
 }
