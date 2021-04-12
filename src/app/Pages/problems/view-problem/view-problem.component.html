@@ -39,8 +39,8 @@
                 <div class="line"></div>
                 <div class="actionsArea d-flex justify-content-between">
                     <div class="actionButtons">
-                        <button class="btn" (click)="pressedLike =! pressedLike; checkPressed('Like')"><span class="m-r-10">Like</span> <fa-icon [icon]="iconsObj.fasThumbsUp" *ngIf="!pressedLike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedLike}" [icon]="iconsObj.farThumbsUp" *ngIf="pressedLike"></fa-icon></button>
-                        <button class="btn" (click)="pressedDislike =! pressedDislike; checkPressed('Dislike')"><span class="m-r-10">Dislikes</span> <fa-icon [icon]="iconsObj.farThumbsDown" *ngIf="!pressedDislike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedDislike}" [icon]="iconsObj.fasThumbsDown" *ngIf="pressedDislike"></fa-icon></button>
+                        <button class="btn" (click)="pressedLike =! pressedLike; checkPressed('Like','Comment',comment)"><span class="m-r-10">Like</span> <fa-icon [icon]="iconsObj.fasThumbsUp" *ngIf="!pressedLike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedLike}" [icon]="iconsObj.farThumbsUp" *ngIf="pressedLike"></fa-icon></button>
+                        <button class="btn" (click)="pressedDislike =! pressedDislike; checkPressed('Dislike','Comment',comment)"><span class="m-r-10">Dislikes</span> <fa-icon [icon]="iconsObj.farThumbsDown" *ngIf="!pressedDislike"></fa-icon> <fa-icon [ngClass]="{'pressedColor': pressedDislike}" [icon]="iconsObj.fasThumbsDown" *ngIf="pressedDislike"></fa-icon></button>
                     </div>
                     <div class="status">
                         <p><span class="m-r-10"><span>{{comment.likesCount}}</span> Likes</span> <span>{{comment.disLikeCount}}</span> Dislikes</p>
@@ -51,7 +51,7 @@
         <div class="addCommentSection collapse" id="collapseExample">
             <angular-editor [placeholder]="'Enter text here...'" [(ngModel)]="htmlContent"></angular-editor>
             <div class="d-flex">
-                <button type="button" class="btn customButton ml-auto" (click)="addProblemDialog()">Post comment</button>
+                <button type="button" class="btn customButton ml-auto" >Post comment</button>
             </div>
         </div>
     </div>

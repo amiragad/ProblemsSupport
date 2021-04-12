@@ -1,19 +1,42 @@
-<mat-dialog-content class="mat-typography">
- <div class="titleArea">
-    <label for="problemTitle" class="form-label">Title</label>
-    <input type="text" class="form-control"  [(ngModel)]="problemDetails" #problemTitle="ngModel" placeholder="Add problem title" required>
-    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
-      <div *ngIf="name.errors.required">
+<form [formGroup]="problemForm" (ngSubmit)="onsubmit(problemForm.value)">
+  <mat-dialog-content class="mat-typography">
+    <div class="titleArea">
+      <label for="problemTitle" class="form-label">Title</label>
+      <input type="text" class="form-control" id="problemTitle" formControlName="problemTitle"
+        placeholder="Add problem title">
+    </div>
+    <div *ngIf="problemForm.controls.problemTitle.invalid && (problemForm.controls.problemTitle.dirty || problemForm.controls.problemTitle.touched)"
+      class="alert alert-danger">
+      <div *ngIf="problemForm.controls.problemTitle.errors">
         Title is required.
       </div>
     </div>
- </div>
- <div class="descArea">
-  <label for="problemDescription" class="form-label">Description</label>
-  <angular-editor [placeholder]="'Enter problem description here...'" [(ngModel)]="htmlContent"></angular-editor>
- </div>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" class="customButton" cdkFocusInitial>Post your question</button>
-</mat-dialog-actions>
+
+    <div class="categoriesArea">
+      <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <mat-select [(ngModel)]="selectedcategory"  formControlName="problemCategory">
+          <mat-option *ngFor="let category of categoriesList" [value]="category.id">
+            {{category.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    
+    <div class="descArea">
+      <label for="problemDescription" class="form-label">Description</label>
+      <angular-editor  id="problemDescription" formControlName="problemDescription"></angular-editor>
+    </div>
+    <div *ngIf="problemForm.controls.problemDescription.invalid && (problemForm.controls.problemDescription.dirty || problemForm.controls.problemDescription.touched)"
+      class="alert alert-danger">
+      <div *ngIf="problemForm.controls.problemDescription.errors.required">
+        Description is required.
+      </div>
+    </div>
+
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button type="submit" mat-dialog-close class="customButton" [disabled]="problemForm.controls.problemTitle.invalid" cdkFocusInitial>Post your question</button>
+  </mat-dialog-actions>
+</form>
