@@ -20,7 +20,11 @@ export class AuthComponent implements OnInit {
 
   // loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private AuthService: AuthService) { }
+  constructor(private formBuilder: FormBuilder, private router: Router, private AuthService: AuthService) { 
+    if(Cookies.get('ProgramerToken')){
+      this.router.navigate(['problems']);
+    }
+  }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({

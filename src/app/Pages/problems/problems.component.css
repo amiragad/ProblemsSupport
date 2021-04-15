@@ -1,107 +1,132 @@
-.listContainer{
+.listContainer {
     padding: 25px 0px;
 }
 
 
 .mr-15{margin-right: 15px;}
-mat-form-field{
+mat-form-field {
     margin-left: 25px;
     margin-right: 25px;
-   
 }
-mat-input-element{color: currentColor !important;}
 
-.pt-25{padding-top: 12px;}
-.ml-r-0{
+mat-input-element {
+    color: currentColor !important;
+}
+
+.pt-25 {
+    padding-top: 12px;
+}
+
+.ml-r-0 {
     margin-left: 0px !important;
     margin-right: 0px !important;
 }
-.problemsListArea{
+
+.problemsListArea {
     padding: 5px 30px;
 }
-.problemCard{
+
+.problemCard {
     background-color: #be567021;
-    -webkit-box-shadow: 0px 10px 11px -1px rgba(135,135,135,1);
-    -moz-box-shadow: 0px 10px 11px -1px rgba(135,135,135,1);
-    box-shadow: 0px 10px 11px -1px rgba(135,135,135,1);
-    margin:15px 1px;
+    -webkit-box-shadow: 0px 10px 11px -1px rgba(135, 135, 135, 1);
+    -moz-box-shadow: 0px 10px 11px -1px rgba(135, 135, 135, 1);
+    box-shadow: 0px 10px 11px -1px rgba(135, 135, 135, 1);
+    margin: 15px 1px;
     padding: 20px;
     transition: transform .4s;
     cursor: pointer;
 }
+
 .problemCard:hover {
-    transform: scale(1.05); 
-  }
-.problemCard header{
+    transform: scale(1.05);
+}
+
+.problemCard header {
     font-size: 17px;
     font-weight: 500;
     margin-top: 5px;
     margin-bottom: 10px;
 }
 
-.problemCard .solved{
+.problemCard .solved {
     background-color: #589058;
     padding: 5px 25px;
     border-radius: 3px;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
     transform: scale(1);
     animation: pulse-green 2s infinite;
-    min-width: 100%; 
+    min-width: 100%;
     text-align: center
 }
-    .problemCard .solved span{
-        font-size: 15px;
-        font-weight: 500;
-        color: #fff;
-    }
-.problemCard .discriptionArea  {
+
+.problemCard .solved span {
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+}
+
+.problemCard .discriptionArea {
     padding-top: 15px;
-}  
-  
+}
+
 @keyframes pulse-green {
     0% {
-      transform: scale(1);
-      box-shadow: 0 0 0 0 #589058;
+        transform: scale(1);
+        box-shadow: 0 0 0 0 #589058;
     }
-    
     70% {
-      transform: scale(1);
-      box-shadow: 0 0 0 10px rgba(51, 217, 178, 0);
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(51, 217, 178, 0);
     }
-    
     100% {
-      transform: scale(1);
-      box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
     }
-  }
-
-@media(min-width:1491px){
-    .problemCard header{margin-bottom: 0px;}
-    .problemCard .solved{min-width: auto;}
-}  
-
-@media(max-width:511px){
-    mat-form-field{width: 100%;}
 }
-@media (min-width: 768px){
+
+@media(min-width:1491px) {
+    .problemCard header {
+        margin-bottom: 0px;
+    }
+    .problemCard .solved {
+        min-width: auto;
+    }
+}
+
+@media(max-width:511px) {
+    mat-form-field {
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
     .justify-content-md-around {
         justify-content: space-evenly!important;
     }
 }
 
 /* Paginator Style */
-.paginationArea{
+
+.paginationArea {
     margin-top: 33px;
 }
 
-.page-link {border: none; color: #be5670; border-radius: 2px;}
-.page-link:hover{background-color: #be567021;}
-.page-item.active .page-link{
+.page-link {
+    border: none;
+    color: #be5670;
+    border-radius: 2px;
+}
+
+.page-link:hover {
+    background-color: #be567021;
+}
+
+.page-item.active .page-link {
     background-color: #be5670;
     border-color: #be5670;
 }
 
-.customButton{
+.customButton {
     background-color: #be5670;
     max-height: 50px;
     color: #fff;
