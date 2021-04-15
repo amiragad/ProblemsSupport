@@ -10,33 +10,34 @@
                   </mat-form-field>
                 <mat-form-field appearance="fill">
                     <mat-label>Category</mat-label>
-                    <mat-select [(ngModel)]="selectedValue" name="category">
-                      <mat-option *ngFor="let category of categories" [value]="category.value">
-                        {{category.viewValue}}
+                    <mat-select [(ngModel)]="selectedcategory" name="category">
+                      <mat-option *ngFor="let category of categoriesList" [value]="category.id">
+                        {{category.name}}
                       </mat-option>
                     </mat-select>
                   </mat-form-field>
               </form>
-              <!-- <button mat-button  class="ml-auto" (click)="addProblemDialog()" >Add Problem</button> -->
-              <button type="button" class="btn customButton ml-auto" (click)="addProblemDialog()">Add Problem</button>
+              <button type="button" class="btn customButton ml-auto mr-15" (click)="showEdit = !showEdit ">Edit Problem</button>
+              <button type="button" class="btn customButton" (click)="openProblemDialog('Add')">Add Problem</button>
         </div>
     </div>
     <div class="row problemsListArea ml-r-0 d-flex align-items-stretch justify-content-md-around">
-      <div class="col-12 col-md-4 col-lg-3 problemCard d-flex flex-column" *ngFor="let problem of problemList; index as i;" (click)="ShowProblemDtails(problem)">
+      <div class="col-12 col-md-4 col-lg-3 problemCard d-flex flex-column" *ngFor="let problem of problemList" (click)="ShowProblemDtails(problem)">
           <div class="HeaderArea d-flex justify-content-xl-between justify-content-center flex-md-column flex-lg-row flex-wrap">
             <header>{{problem.title}}</header>
             <div class="solved" *ngIf="problem.solved"><span>Solved</span></div>
           </div>
-          <div class="discriptionArea">
+          <div class="discriptionArea d-flex justify-content-xl-between justify-content-center flex-md-column flex-lg-row flex-wrap">
             <p>
               {{problem.description}}
             </p>
+            <fa-icon *ngIf="showEdit" (click)="openProblemDialog('Edit', problem)" class="animate__animated animate__fadeInRight" [icon]="faPen"></fa-icon>
           </div>
       </div>
     </div>
     <div class="row ml-r-0 paginationArea">
-      <div class="col-12">
-        <nav aria-label="Page navigation problemNavigation">
+      <div class="col-12 d-flex justify-content-center">
+        <!-- <nav aria-label="Page navigation problemNavigation">
           <ul class="pagination justify-content-center">
             <li class="page-item disabled">
               <a class="page-link" href="" tabindex="-1" aria-disabled="true">Previous</a>
@@ -48,7 +49,17 @@
               <a class="page-link" href="">Next</a>
             </li>
           </ul>
-        </nav>
+        </nav> -->
+        <ngb-pagination
+          [(page)]="pageNumber"
+          [pageSize]="pageSize"
+          [collectionSize]="this.paginationData.listCount"
+          (pageChange)="onPageChange($event);"
+          [boundaryLinks]="true">
+
+          <ng-template ngbPaginationPrevious>Prev</ng-template>
+          <ng-template ngbPaginationNext>Next</ng-template>
+        </ngb-pagination>
       </div>
     </div>
 </div>

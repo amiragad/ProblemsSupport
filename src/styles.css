@@ -75,3 +75,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     color: #fff;
 }
 .angular-editor-textarea{min-height: 200px !important; background-color: #fff !important;}
+.paginationArea{
+    margin-top: 33px;
+}
+
+.page-link {border: none; color: #be5670; border-radius: 2px;}
+.page-link:hover{background-color: #be567021; color: #be5670;}
+.page-item.active .page-link{
+    background-color: #be5670;
+    border-color: #be5670;
+}
+.page-link:focus {
+    box-shadow: none;
+}
+
+
+.customButton{
+    background-color: #be5670;
+    max-height: 50px;
+    color: #fff;
+}

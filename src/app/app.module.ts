@@ -27,6 +27,8 @@ import { ProblemService } from './Services/problem.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AddProblemComponent } from './Pages/problems/add-problem/add-problem.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { AddSolutionComponent } from './Pages/problems/add-solution/add-solution.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -56,13 +58,15 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     MaterialModule,
     FontAwesomeModule,
     HttpClientModule,
-    SweetAlert2Module
+    SweetAlert2Module,
+    NgbModule
   ],
   providers: [ProblemService],
   bootstrap: [AppComponent],
   entryComponents:
   [
     AddProblemComponent,
+    AddSolutionComponent,
     AddCategoryComponent
   ]
 })

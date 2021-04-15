@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { tap } from 'rxjs/operators';
 import { Categories, Category } from 'src/app/Interfaces/categories';
@@ -7,6 +8,7 @@ import { Problem } from 'src/app/Interfaces/problem';
 import { CategoriesService } from 'src/app/Services/categories.service';
 import { ProblemService } from 'src/app/Services/problem.service';
 import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-add-problem',
@@ -28,18 +30,24 @@ export class AddProblemComponent implements OnInit {
   }
   categoriesList: Category[] | undefined;
   selectedcategory:String | undefined;
+  modalData: any;
   
 
 
-  constructor(private formBuilder: FormBuilder, public _problemService : ProblemService, public _categoriesService: CategoriesService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+     public _problemService : ProblemService,
+      public _categoriesService: CategoriesService,
+      @Inject(MAT_DIALOG_DATA) public data: any
+      ) { }
 
-  onsubmit(formDate:any){
+  onsubmit(formData:any){
     debugger
-    formDate.problemDescription = formDate.problemDescription.replace(/<\/?[^>]+(>|$)/g, "");
+    formData.problemDescription = formData.problemDescription.replace(/<\/?[^>]+(>|$)/g, "");
     this.problemObject = {
-      "cat_Id": formDate.problemCategory,
-      "title": formDate.problemTitle,
-      "description": formDate.problemDescription,
+      "cat_Id": formData.problemCategory,
+      "title": formData.problemTitle,
+      "description": formData.problemDescription,
       "solved": 0
     }
     this._problemService.addNewProblem(this.problemObject).subscribe(res => {
@@ -86,5 +94,8 @@ export class AddProblemComponent implements OnInit {
   ngOnInit(): void {
     debugger
     this.getAllCategories();
+    this.modalData = this.data;
   }
 }
+
+

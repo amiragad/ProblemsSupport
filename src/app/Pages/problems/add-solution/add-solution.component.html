@@ -1,0 +1,18 @@
+<form [formGroup]="solutionForm" (ngSubmit)="onsubmit(solutionForm.value)">
+    <mat-dialog-content class="mat-typography">
+      <div class="descArea">
+        <label for="solutionDescription" class="form-label">Description</label>
+        <angular-editor  id="solutionDescription" formControlName="solutionDescription" [config]="config"></angular-editor>
+      </div>
+      <div *ngIf="solutionForm.controls.solutionDescription.invalid && (solutionForm.controls.solutionDescription.dirty || solutionForm.controls.solutionDescription.touched)"
+        class="alert alert-danger">
+        <div *ngIf="solutionForm.controls.solutionDescription.errors.required">
+          Description is required.
+        </div>
+      </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button type="submit" mat-dialog-close class="customButton" [disabled]="solutionForm.controls.solutionDescription.invalid" cdkFocusInitial>Post your solution</button>
+    </mat-dialog-actions>
+  </form>
