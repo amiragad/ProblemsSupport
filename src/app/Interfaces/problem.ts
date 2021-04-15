@@ -8,10 +8,17 @@ export interface Problem {
 }
 
 export interface ProblemList{
-  data : Problem [],
+  data : ProblemPagination ,
   status: Number,
   message: String,
   success: boolean
+}
+export interface ProblemPagination{
+  listCount: Number,
+  totalPages: Number,
+  pageNumber: Number,
+  pageSize: Number,
+  data : Problem [],
 }
 
 export interface Solution{
@@ -20,6 +27,8 @@ export interface Solution{
   likesCount: Number,
   disLikeCount: Number,
   date: String,
+  isLike:boolean,
+  isDisLike:boolean,
   comments : Comment []
 }
 

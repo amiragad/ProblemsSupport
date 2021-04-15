@@ -13,6 +13,7 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { HttpClientModule } from '@angular/common/http';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { AddSolutionComponent } from './add-solution/add-solution.component';
 
 
 
@@ -22,7 +23,8 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
   declarations: [
     ViewProblemComponent,
     ProblemCardComponent,
-    AddProblemComponent
+    AddProblemComponent,
+    AddSolutionComponent
   ],
   imports: [
     CommonModule,
